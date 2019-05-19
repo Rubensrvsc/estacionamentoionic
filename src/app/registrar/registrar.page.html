@@ -4,6 +4,32 @@
   </ion-toolbar>
 </ion-header>
 
+
+<ion-content>
+  <ion-list>
+  <ion-item>
+      <ion-label >Nome</ion-label>
+      <ion-input name="nome"  type="text"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label >Idade</ion-label>
+      <ion-input name="idade"  type="number"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label >E-mail</ion-label>
+      <ion-input name="email"  type="email"></ion-input>
+    </ion-item>
+    <ion-item>
+      <ion-label >Senha</ion-label>
+      <ion-input name="senha" type="password"></ion-input>
+    </ion-item>
+  </ion-list>
+  <div padding>
+    <button (click)="registrar(nome,idade, email, senha)"> Cadastrar</button>
+
+  </div>
+</ion-content>
+
 <ion-content>
 <ion-button routerLink="/home"> Login</ion-button>
 
