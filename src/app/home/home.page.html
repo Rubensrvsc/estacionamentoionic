@@ -1,31 +1,45 @@
-<ion-header>
+<ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>
-      Login
+      Blank
     </ion-title>
   </ion-toolbar>
 </ion-header>
 
-<ion-content>
-  <ion-list>
-    <ion-item>
-      <ion-label >E-mail</ion-label>
-      <ion-input></ion-input>
-    </ion-item>
-    <ion-item>
-      <ion-label >Senha</ion-label>
-      <ion-input ></ion-input>
-    </ion-item>
-  </ion-list>
-  <div padding>
-    <button >      Cadastrar</button>
+<ion-content [fullscreen]="true">
+  <ion-header collapse="condense">
+    <ion-toolbar>
+      <ion-title size="large">Blank</ion-title>
+    </ion-toolbar>
+    <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>List</title>
+      <script type="module" src="https://cdn.jsdelivr.net/npm/@ionic/core@next/dist/ionic/ionic.esm.js"></script>
+      <script nomodule src="https://cdn.jsdelivr.net/npm/@ionic/core@next/dist/ionic/ionic.js"></script>
+      <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@ionic/core@next/css/ionic.bundle.css"/>
+      <style>
+        :root {
+          --ion-safe-area-top: 20px;
+          --ion-safe-area-bottom: 22px;
+        }
+      </style>
+    </head>
+  </ion-header>
 
-    <button > Login</button>
-
-    <button > Logout</button>
-
-    <button routerLink="/registrar"> Registrar</button>
+  <div id="container">
+    <strong>Ready to create an app?</strong>
+    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
   </div>
+
+  <ion-list>
+    <ion-list-header>
+      Estacionamentos livres
+    </ion-list-header>
+    <div *ngFor="let item of lista_vagas">
+      <ion-label>{{item.numero_vaga}}</ion-label>
+      <ion-label>{{item.prop_vaga}}</ion-label>
+
+    </div>
+  </ion-list>
 </ion-content>
-
-
