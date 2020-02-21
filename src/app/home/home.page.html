@@ -1,8 +1,6 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
-    <ion-title>
-      Blank
-    </ion-title>
+    <ion-title>Lista de estacionamentos</ion-title>
   </ion-toolbar>
 </ion-header>
 
@@ -11,7 +9,7 @@
     <ion-toolbar>
       <ion-title size="large">Blank</ion-title>
     </ion-toolbar>
-    <head>
+   
       <meta charset="UTF-8">
       <meta name="viewport" content="width=device-width, initial-scale=1.0">
       <title>List</title>
@@ -24,22 +22,30 @@
           --ion-safe-area-bottom: 22px;
         }
       </style>
-    </head>
+    
   </ion-header>
 
-  <div id="container">
-    <strong>Ready to create an app?</strong>
-    <p>Start with Ionic <a target="_blank" rel="noopener noreferrer" href="https://ionicframework.com/docs/components">UI Components</a></p>
-  </div>
+ 
 
   <ion-list>
     <ion-list-header>
       Estacionamentos livres
     </ion-list-header>
     <div *ngFor="let item of lista_vagas">
-      <ion-label>{{item.numero_vaga}}</ion-label>
-      <ion-label>{{item.prop_vaga}}</ion-label>
+      <ion-label *ngIf="item.ocupada == false">
+      
+        <ion-card>
+          <ion-card-header>
+            <ion-card-subtitle>Vaga: {{item.numero_vaga}}</ion-card-subtitle>
+            <ion-card-title>Proprietario: {{item.prop_vaga}}</ion-card-title>
+          </ion-card-header>
+        
+          
+        </ion-card>
+      </ion-label>
 
     </div>
+    
   </ion-list>
+  <ion-button (click)="obtemUsuario()">Obter usuario</ion-button>
 </ion-content>

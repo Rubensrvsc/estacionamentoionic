@@ -14,4 +14,8 @@ export class ApiService {
     return this.http.get(this.api_root.concat('vervagas/'));
   }
 
+  getUser(){
+    return this.http.get(this.api_root.concat('auth/user/'));
+  }
+
 }

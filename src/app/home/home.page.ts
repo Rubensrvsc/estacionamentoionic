@@ -27,8 +27,18 @@ export class HomePage implements OnInit{
           console.log(this.lista_vagas);
        },error=>{
           console.log(error);
-       }
-     )
+       })
+
+    }
+
+    obtemUsuario(){
+      this.api.getUser().subscribe(
+        data=>{
+          const res = (data as any);
+          console.log(res)
+        },error=>{
+          console.log(error);
+        });
     }
 
     logout(){
