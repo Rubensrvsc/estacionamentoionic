@@ -29,4 +29,8 @@ export class SigninPage implements OnInit {
     );
   }
 
+  getSignUp(){
+    this.router.navigate(['signup']);
+  }
+
 }
