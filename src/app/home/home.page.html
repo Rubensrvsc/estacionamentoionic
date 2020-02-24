@@ -40,6 +40,7 @@
             <ion-card-subtitle>Vaga: {{item.numero_vaga}}</ion-card-subtitle>
             <ion-card-title>Proprietario: {{item.prop_vaga}}</ion-card-title>
           </ion-card-header>
+          <ion-button float-right (click)="reservarVaga(item.numero_vaga)">Reservar</ion-button>
         
           
         </ion-card>

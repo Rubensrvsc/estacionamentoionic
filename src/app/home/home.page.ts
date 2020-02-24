@@ -42,6 +42,10 @@ export class HomePage implements OnInit{
 
     }
 
+    reservarVaga(idVaga: Number){
+      this.api.reservaVaga(idVaga,this.usuario);
+    }
+
     logout(){
       this.authService.logout();
       this.router.navigate(['signin']);

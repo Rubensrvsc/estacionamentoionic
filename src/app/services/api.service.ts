@@ -18,4 +18,12 @@ export class ApiService {
     return this.http.get(this.api_root.concat('auth/user/'));
   }
 
+  reservaVaga(idVaga: Number, nome_cli: String){
+    const json_reserva_vaga = {cliente:idVaga,vaga:nome_cli};
+    this.http.post(this.api_root.concat('clientevagacreate/'),json_reserva_vaga).toPromise().
+    then(response => {return response.json()});
+    console.log(nome_cli);
+    console.log(idVaga);
+  }
+
 }
