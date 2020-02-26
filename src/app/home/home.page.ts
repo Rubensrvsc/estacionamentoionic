@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { AuthService } from '../services/auth.service';
 import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
+import { async } from '@angular/core/testing';
 
 @Component({
   selector: 'app-home',
@@ -16,7 +18,7 @@ export class HomePage implements OnInit{
   
 
   constructor(private api: ApiService, private authService: AuthService,
-    private router: Router) {}
+    private router: Router,public toastcontroler: ToastController) {}
 
     ngAfterViewInit(){
       return this.api.getUser().subscribe(
@@ -44,6 +46,16 @@ export class HomePage implements OnInit{
 
     reservarVaga(idVaga: Number){
       this.api.reservaVaga(idVaga,this.usuario);
+      this.toast_home();
+    }
+
+    async toast_home(){
+      const toast = await this.toastcontroler.create({
+        message: 'Vaga reservada com sucesso',
+        duration:2000
+      });
+
+      toast.present();
     }
 
     logout(){

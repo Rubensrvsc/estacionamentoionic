@@ -19,7 +19,7 @@ export class ApiService {
   }
 
   reservaVaga(idVaga: Number, nome_cli: String){
-    const json_reserva_vaga = {cliente:idVaga,vaga:nome_cli};
+    const json_reserva_vaga = {vaga:idVaga,cliente:nome_cli};
     this.http.post(this.api_root.concat('clientevagacreate/'),json_reserva_vaga).toPromise().
     then(response => {return response.json()});
     console.log(nome_cli);
