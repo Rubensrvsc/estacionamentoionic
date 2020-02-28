@@ -58,6 +58,10 @@ export class HomePage implements OnInit{
       toast.present();
     }
 
+    verPerfil(){
+      this.router.navigate(['perfil']);
+    }
+
     logout(){
       this.authService.logout();
       this.router.navigate(['signin']);

@@ -1,9 +1,11 @@
 <ion-header [translucent]="true">
   <ion-toolbar>
     <ion-title>Bem Vindo: {{usuario}}</ion-title>
+    <ion-icon float-right name="person" style="zoom:2.0;" (click)="verPerfil()"></ion-icon>
   </ion-toolbar>
 <ion-button float-right (click)="logout()">Logout</ion-button>
 </ion-header>
+
 
 <ion-content [fullscreen]="true">
   <ion-header collapse="condense">
