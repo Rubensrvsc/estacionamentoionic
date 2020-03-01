@@ -1,9 +1,27 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>perfil</ion-title>
+    <ion-title>Suas vagas: {{usuario}}</ion-title>
   </ion-toolbar>
 </ion-header>
 
 <ion-content>
+
+  <div *ngFor="let item of lista_vagas_cliente">
+    <ion-label *ngIf="item.transacao_is_terminada == false">
+    
+      <ion-card>
+        <ion-card-header>
+          <ion-card-subtitle>Vaga: {{item.vaga}}</ion-card-subtitle>
+          <ion-card-title>Horário de entrada: {{item.hora_entrada}}</ion-card-title>
+
+          <ion-button float-right (click)="sairVaga()">Sair da Vaga</ion-button>
+
+        </ion-card-header>
+      
+        
+      </ion-card>
+    </ion-label>
+
+  </div>
 
 </ion-content>
