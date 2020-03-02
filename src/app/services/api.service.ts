@@ -30,4 +30,8 @@ export class ApiService {
     console.log(idVaga);
   }
 
+  sairVaga(idVaga: Number){
+
+  }
+
 }
