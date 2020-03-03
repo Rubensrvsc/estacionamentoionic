@@ -1,6 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { repeat } from 'rxjs/operators';
+import { Router } from '@angular/router';
+import { ToastController } from '@ionic/angular';
 
 @Component({
   selector: 'app-perfil',
@@ -13,7 +15,8 @@ export class PerfilPage implements OnInit {
   error: any;
   public usuario: any;
 
-  constructor(private api: ApiService) { }
+  constructor(private api: ApiService,
+    private router: Router,public toastcontroler: ToastController) { }
 
   ngAfterViewInit(){
     return this.api.getUser().subscribe(
@@ -37,8 +40,21 @@ export class PerfilPage implements OnInit {
     )
     }
 
-    sairVaga(){
+    sairVaga(idVaga: Number){
       console.log("sair da vaga");
+      this.api.sairVaga(idVaga);
+      this.toast_sair_vaga();
+      this.router.navigate(['home']);
+      
     }
+
+  async toast_sair_vaga(){
+    const toast = await this.toastcontroler.create({
+      message: 'Saiu da vaga com sucesso',
+      duration:2000
+    });
+
+    toast.present();
+  }
 
 }

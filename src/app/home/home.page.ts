@@ -47,6 +47,13 @@ export class HomePage implements OnInit{
     reservarVaga(idVaga: Number){
       this.api.reservaVaga(idVaga,this.usuario);
       this.toast_home();
+      this.router.navigate(['perfil']);
+    }
+
+    resvaga(idVaga: Number){
+      this.api.reservaVaga(idVaga,this.usuario);
+      this.toast_home();
+      this.router.navigate(['perfil']);
     }
 
     async toast_home(){
