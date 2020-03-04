@@ -32,9 +32,10 @@ export class ApiService {
   }
 
   sairVaga(idVaga: Number){
-      const nome_cli=this.getUser();
-      //this.http.put(this.api_root.concat(`clientesaidavaga/${nome_cli}/${idVaga}`));
-      console.log(nome_cli);
+      const json_vaga={vaga_cliente:idVaga}
+      this.http.put(this.api_root.concat('clientesaidavaga/'),json_vaga).toPromise().
+      then(resposta => resposta.json());
+      //console.log(nome_cli);
       console.log(idVaga);
   }
 

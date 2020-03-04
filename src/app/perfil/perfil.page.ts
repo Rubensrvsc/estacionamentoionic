@@ -57,4 +57,8 @@ export class PerfilPage implements OnInit {
     toast.present();
   }
 
+  irHome(){
+    this.router.navigate(['home']);
+  }
+
 }
