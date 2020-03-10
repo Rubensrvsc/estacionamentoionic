@@ -39,4 +39,8 @@ export class ApiService {
       console.log(idVaga);
   }
 
+  obtemNomesProps(){
+    return this.http.get(this.api_root.concat('mostranomeprop/'));
+  }
+
 }

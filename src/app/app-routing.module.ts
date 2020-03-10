@@ -15,7 +15,11 @@ const routes: Routes = [
   },
   {
     path: 'perfil',
-    loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule)
+    loadChildren: () => import('./perfil/perfil.module').then( m => m.PerfilPageModule),canActivate:[AuthGuard]
+  },
+  {
+    path: 'listaproprietarios',
+    loadChildren: () => import('./listaproprietarios/listaproprietarios.module').then( m => m.ListaproprietariosPageModule),canActivate:[AuthGuard]
   },
  
 ];
