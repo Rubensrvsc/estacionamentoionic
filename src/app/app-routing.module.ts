@@ -21,6 +21,14 @@ const routes: Routes = [
     path: 'listaproprietarios',
     loadChildren: () => import('./listaproprietarios/listaproprietarios.module').then( m => m.ListaproprietariosPageModule),canActivate:[AuthGuard]
   },
+  {
+    path: 'confirmareserva',
+    loadChildren: () => import('./confirmareserva/confirmareserva.module').then( m => m.ConfirmareservaPageModule)
+  },
+  {
+    path: 'confirmasaida',
+    loadChildren: () => import('./confirmasaida/confirmasaida.module').then( m => m.ConfirmasaidaPageModule)
+  },
  
 ];
 
