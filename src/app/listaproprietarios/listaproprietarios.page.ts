@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { Router } from '@angular/router';
+import {VagasProp} from '../services/vagas-proṕ';
 
 
 
@@ -14,7 +15,9 @@ import { Router } from '@angular/router';
 export class ListaproprietariosPage implements OnInit {
 
   public lista_prop = new Array<any>();
-  public result= new Array<any>();
+  public result= new Array<VagasProp>();
+  public result2= new Array<VagasProp>();
+  public result3 = new Array<any>();
   
 
   constructor(private api: ApiService, private router: Router) { }
@@ -30,11 +33,35 @@ export class ListaproprietariosPage implements OnInit {
     )
   }
 
+  ngAfterViewInit(){
+  this.api.obtemVagasProp2(1).subscribe(res=>{
+    this.result2.push(res);
+    //console.log(this.result2);
+  });
+  
+  console.log(this.result2);
+  
 
+  
+  this.result3=this.result2;
+  console.log(typeof(this.result3));
+  
+
+ 
+  
+}
 
 
   irParaVagas(prop: Number){
-    this.api.obtemVagasProp(prop);
+    this.api.obtemVagasProp2(prop).subscribe(res=>{
+      const r = (res as any);
+      console.log(r);
+      this.result3=r;
+      this.result.push(res);
+      console.log(this.result);
+    });
+    console.log(this.result);
+    console.log(this.result3);
     
     //this.router.navigate(['listavagasprop']);
   }

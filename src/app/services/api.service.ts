@@ -1,13 +1,25 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { map, debounceTime,
+  distinctUntilChanged,
+  switchMap,
+  tap} from 'rxjs/operators';
+import { Observable } from 'rxjs';
+import {VagasProp} from './vagas-proṕ';
 
 @Injectable({
   providedIn: 'root'
 })
+
+
+
 export class ApiService {
 
   public result: any;
   public result2: any;
+
+  //public VagasProp = new Array<JSON>();
+  
 
   private api_root = 'http://localhost:8000/';
   //nome_cli=this.getUser();
@@ -51,6 +63,18 @@ export class ApiService {
     const vagas=this.http.get(this.api_root.concat(`mostravagasprop/${id_prop}/`)).toPromise();
     console.log(vagas);
     
+  }
+
+  obtemVagasProp2(id_prop: Number): Observable<VagasProp[]>{
+    const vgs = this.http.get<VagasProp[]>(this.api_root.concat(`obtemvagasprop/${id_prop}/`));
+    return vgs;
+    /*return vgs.pipe(
+      map(res => {
+        return res.json().map(item => {
+          console.log(item);
+        });
+      })
+    );*/
   }
 
   getVaga(result){
