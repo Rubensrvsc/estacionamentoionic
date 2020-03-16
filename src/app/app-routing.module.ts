@@ -29,6 +29,10 @@ const routes: Routes = [
     path: 'confirmasaida',
     loadChildren: () => import('./confirmasaida/confirmasaida.module').then( m => m.ConfirmasaidaPageModule)
   },
+  {
+    path: 'listavagasprop',
+    loadChildren: () => import('./listavagasprop/listavagasprop.module').then( m => m.ListavagaspropPageModule)
+  },
  
 ];
 

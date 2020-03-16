@@ -24,7 +24,7 @@ export class SigninPage implements OnInit {
   login() {
     console.log(this.username);
     this.authService.login(this.username,this.password).subscribe(
-      success => this.router.navigate(['home']),
+      success => this.router.navigate(['listaproprietarios']),
       error => this.error = error
     );
   }

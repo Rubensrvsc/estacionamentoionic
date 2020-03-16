@@ -6,6 +6,9 @@ import { HttpClient } from '@angular/common/http';
 })
 export class ApiService {
 
+  public result: any;
+  public result2: any;
+
   private api_root = 'http://localhost:8000/';
   //nome_cli=this.getUser();
 
@@ -41,6 +44,21 @@ export class ApiService {
 
   obtemNomesProps(){
     return this.http.get(this.api_root.concat('mostranomeprop/'));
+  }
+
+  obtemVagasProp(id_prop: Number){
+    console.log(id_prop);
+    const vagas=this.http.get(this.api_root.concat(`mostravagasprop/${id_prop}/`)).toPromise();
+    console.log(vagas);
+    
+  }
+
+  getVaga(result){
+    
+    this.result2= result;
+    console.log(this.result2);
+    return this.result2;
+
   }
 
 }
