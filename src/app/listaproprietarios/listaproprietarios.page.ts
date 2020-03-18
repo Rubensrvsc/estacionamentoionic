@@ -2,6 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { Router } from '@angular/router';
 import {VagasProp} from '../services/vagas-proṕ';
+import { NavController } from '@ionic/angular';
+import { ConfirmareservaPage } from '../confirmareserva/confirmareserva.page';
 
 
 
@@ -18,9 +20,12 @@ export class ListaproprietariosPage implements OnInit {
   public result= new Array<VagasProp>();
   public result2= new Array<VagasProp>();
   public result3 = new Array<any>();
+
+  public reserva = ConfirmareservaPage;
   
 
-  constructor(private api: ApiService, private router: Router) { }
+  constructor(private api: ApiService, private router: Router,
+    public navCtrl: NavController) { }
 
   ngOnInit() {
     return this.api.obtemNomesProps().subscribe(
@@ -64,6 +69,10 @@ export class ListaproprietariosPage implements OnInit {
     console.log(this.result3);
     
     //this.router.navigate(['listavagasprop']);
+  }
+
+  vaiVagasTeste(id_prop: Number){
+    this.router.navigate(['confirmareserva',id_prop]);
   }
 
 }

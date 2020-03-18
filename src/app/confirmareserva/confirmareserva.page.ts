@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import {ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-confirmareserva',
@@ -7,9 +8,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfirmareservaPage implements OnInit {
 
-  constructor() { }
+  public id: Number;
+
+  constructor(public act: ActivatedRoute) { }
 
   ngOnInit() {
+
+    this.act.params.subscribe(objeto =>{
+      this.id = objeto['id_prop'];
+    });
+
+    console.log(this.id);
+
   }
 
 }

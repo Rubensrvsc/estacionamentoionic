@@ -22,7 +22,7 @@ const routes: Routes = [
     loadChildren: () => import('./listaproprietarios/listaproprietarios.module').then( m => m.ListaproprietariosPageModule),canActivate:[AuthGuard]
   },
   {
-    path: 'confirmareserva',
+    path: 'confirmareserva/:id_prop',
     loadChildren: () => import('./confirmareserva/confirmareserva.module').then( m => m.ConfirmareservaPageModule)
   },
   {
