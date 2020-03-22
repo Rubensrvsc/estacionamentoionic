@@ -24,8 +24,7 @@ export class ListaproprietariosPage implements OnInit {
   public reserva = ConfirmareservaPage;
   
 
-  constructor(private api: ApiService, private router: Router,
-    public navCtrl: NavController) { }
+  constructor(private api: ApiService, private router: Router) { }
 
   ngOnInit() {
     return this.api.obtemNomesProps().subscribe(
@@ -72,7 +71,7 @@ export class ListaproprietariosPage implements OnInit {
   }
 
   vaiVagasTeste(id_prop: Number){
-    this.router.navigate(['confirmareserva',id_prop]);
+    this.router.navigate(['listavagasprop',id_prop]);
   }
 
 }

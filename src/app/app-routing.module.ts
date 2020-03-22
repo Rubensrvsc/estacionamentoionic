@@ -22,7 +22,7 @@ const routes: Routes = [
     loadChildren: () => import('./listaproprietarios/listaproprietarios.module').then( m => m.ListaproprietariosPageModule),canActivate:[AuthGuard]
   },
   {
-    path: 'confirmareserva/:id_prop',
+    path: 'confirmareserva',
     loadChildren: () => import('./confirmareserva/confirmareserva.module').then( m => m.ConfirmareservaPageModule)
   },
   {
@@ -30,7 +30,7 @@ const routes: Routes = [
     loadChildren: () => import('./confirmasaida/confirmasaida.module').then( m => m.ConfirmasaidaPageModule)
   },
   {
-    path: 'listavagasprop',
+    path: 'listavagasprop/:id_prop',
     loadChildren: () => import('./listavagasprop/listavagasprop.module').then( m => m.ListavagaspropPageModule)
   },
  
