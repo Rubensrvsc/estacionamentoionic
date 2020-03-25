@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {ActivatedRoute } from '@angular/router';
+import {ActivatedRoute, Router } from '@angular/router';
+import { ApiService } from '../services/api.service';
+import {Vagaaserocupada} from '../services/vagaaserocupada';
 
 @Component({
   selector: 'app-confirmareserva',
@@ -8,18 +10,33 @@ import {ActivatedRoute } from '@angular/router';
 })
 export class ConfirmareservaPage implements OnInit {
 
-  public id: Number;
+  public vaga_id: Number;
+  public Vaga = new Array<Vagaaserocupada>();
+  public error: any;
 
-  constructor(public act: ActivatedRoute) { }
+  constructor(public act: ActivatedRoute,private api: ApiService,
+    private router: Router) { }
 
   ngOnInit() {
 
     this.act.params.subscribe(objeto =>{
-      this.id = objeto['id_prop'];
+      this.vaga_id = objeto['id_vaga'];
     });
 
-    console.log(this.id);
+    console.log(this.vaga_id);
 
+  }
+
+  ngAfterViewInit(){
+    this.api.obtemVagaASerConfirmada(this.vaga_id).subscribe(res =>{
+      this.Vaga = (res as any);
+      console.log(this.Vaga);
+    },
+    error=>{
+      console.log(error);
+    }
+    );
+    
   }
 
 }

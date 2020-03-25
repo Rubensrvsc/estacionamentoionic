@@ -1,7 +1,8 @@
 import { Component, OnInit } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { VagasProp } from '../services/vagas-proṕ';
 import { ApiService } from '../services/api.service';
+import { Route } from '@angular/compiler/src/core';
 
 @Component({
   selector: 'app-listavagasprop',
@@ -16,7 +17,8 @@ export class ListavagaspropPage implements OnInit {
   public result3 = new Array<any>();
   
 
-  constructor(public act: ActivatedRoute,private api: ApiService) { }
+  constructor(public act: ActivatedRoute,private api: ApiService,
+    private router: Router) { }
 
   ngOnInit() {
 
@@ -38,6 +40,11 @@ export class ListavagaspropPage implements OnInit {
     });
     console.log(this.result);
     console.log(this.result3);
+  }
+
+  irParaVagaASerOcupada(id_vaga: Number){
+    this.api.obtemVagaASerConfirmada(id_vaga);
+    this.router.navigate(['confirmareserva',id_vaga]);
   }
 
 }

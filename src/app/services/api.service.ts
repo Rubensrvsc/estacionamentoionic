@@ -6,6 +6,7 @@ import { map, debounceTime,
   tap} from 'rxjs/operators';
 import { Observable } from 'rxjs';
 import {VagasProp} from './vagas-proṕ';
+import {Vagaaserocupada} from './vagaaserocupada';
 
 @Injectable({
   providedIn: 'root'
@@ -75,6 +76,13 @@ export class ApiService {
         });
       })
     );*/
+  }
+
+  obtemVagaASerConfirmada(id_vaga: Number): Observable<Vagaaserocupada[]>{
+    const vaga = this.http.get<Vagaaserocupada[]>(
+      this.api_root.concat(`obtemvagaaserocupada/${id_vaga}/`)
+    );
+    return vaga;
   }
 
   getVaga(result){

@@ -5,5 +5,16 @@
 </ion-header>
 
 <ion-content>
-<h1>{{id}}</h1>
+ 
+  <div *ngFor="let item of Vaga">
+    <ion-card>
+      <h1>Nome do Proprietário: {{item.prop_vaga}}</h1>
+      <h3>Numero da vaga: {{item.numero_vaga}}</h3>
+      <h4>Tipo da Vaga: {{item.tipo_vaga}}</h4>
+
+      <ion-button>Confirmar Reserva</ion-button>
+    
+    </ion-card>
+    </div>
+
 </ion-content>

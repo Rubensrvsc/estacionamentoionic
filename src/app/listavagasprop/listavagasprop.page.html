@@ -12,7 +12,7 @@
     <h3>Numero da vaga: {{item.numero_vaga}}</h3>
     <h4>Status da vaga: {{item.ocupada}}</h4>
     <h5>Tipo da Vaga: {{item.tipo_vaga}}</h5>
-    <ion-button center >Reservar Vaga</ion-button>
+    <ion-button (click)="irParaVagaASerOcupada(item.numero_vaga)" >Reservar Vaga</ion-button>
   </ion-card>
   </div>
   </ion-content>
