@@ -4,6 +4,7 @@ import { Router } from '@angular/router';
 import {VagasProp} from '../services/vagas-proṕ';
 import { NavController } from '@ionic/angular';
 import { ConfirmareservaPage } from '../confirmareserva/confirmareserva.page';
+import { AuthService } from '../services/auth.service';
 
 
 
@@ -24,7 +25,8 @@ export class ListaproprietariosPage implements OnInit {
   public reserva = ConfirmareservaPage;
   
 
-  constructor(private api: ApiService, private router: Router) { }
+  constructor(private api: ApiService, private router: Router,
+    private authService: AuthService) { }
 
   ngOnInit() {
     return this.api.obtemNomesProps().subscribe(
@@ -72,6 +74,11 @@ export class ListaproprietariosPage implements OnInit {
 
   vaiVagasTeste(id_prop: Number){
     this.router.navigate(['listavagasprop',id_prop]);
+  }
+
+  logout(){
+    this.authService.logout();
+    this.router.navigate(['signin']);
   }
 
 }

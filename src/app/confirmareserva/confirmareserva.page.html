@@ -1,6 +1,8 @@
 <ion-header>
   <ion-toolbar>
-    <ion-title>confirmareserva</ion-title>
+    <ion-title>Confirma a reserva da vaga</ion-title>
+    <ion-button float-right (click)="logout()">Logout</ion-button>
+
   </ion-toolbar>
 </ion-header>
 
@@ -12,7 +14,7 @@
       <h3>Numero da vaga: {{item.numero_vaga}}</h3>
       <h4>Tipo da Vaga: {{item.tipo_vaga}}</h4>
 
-      <ion-button>Confirmar Reserva</ion-button>
+      <ion-button (click)="resvaga(item.numero_vaga)">Confirmar Reserva</ion-button>
     
     </ion-card>
     </div>
