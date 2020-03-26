@@ -81,4 +81,8 @@ export class ListaproprietariosPage implements OnInit {
     this.router.navigate(['signin']);
   }
 
+  verPerfil(){
+    this.router.navigate(['perfil']);
+  }
+
 }

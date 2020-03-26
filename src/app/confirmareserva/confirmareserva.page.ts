@@ -63,7 +63,7 @@ export class ConfirmareservaPage implements OnInit {
     console.log(idVaga);
     console.log(this.usuario);
     this.toast_home();
-    this.router.navigate(['listaproprietarios']);
+    this.router.navigate(['perfil']);
   }
 
   async toast_home(){
