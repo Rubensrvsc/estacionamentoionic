@@ -61,4 +61,8 @@ export class PerfilPage implements OnInit {
     this.router.navigate(['listaproprietarios']);
   }
 
+  vaiConfirmaSaida(id_vaga: Number){
+    this.router.navigate(['listavagasprop',id_vaga]);
+  }
+
 }

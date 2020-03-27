@@ -1,4 +1,7 @@
 import { Component, OnInit } from '@angular/core';
+import { AuthService } from '../services/auth.service';
+import { Router, ActivatedRoute } from '@angular/router';
+import { ApiService } from '../services/api.service';
 
 @Component({
   selector: 'app-confirmasaida',
@@ -7,9 +10,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ConfirmasaidaPage implements OnInit {
 
-  constructor() { }
+  public id_sai_num: Number;
+
+  constructor(public act: ActivatedRoute,private api: ApiService,
+    private router: Router,private authService: AuthService) { }
 
   ngOnInit() {
+
+    this.act.params.subscribe(objeto =>{
+      this.id_sai_num = objeto['id_sai'];
+    });
+
+    console.log(this.id_sai_num);
   }
 
 }

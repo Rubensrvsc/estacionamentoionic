@@ -26,7 +26,7 @@ const routes: Routes = [
     loadChildren: () => import('./confirmareserva/confirmareserva.module').then( m => m.ConfirmareservaPageModule)
   },
   {
-    path: 'confirmasaida',
+    path: 'confirmasaida/:id_sai',
     loadChildren: () => import('./confirmasaida/confirmasaida.module').then( m => m.ConfirmasaidaPageModule)
   },
   {
