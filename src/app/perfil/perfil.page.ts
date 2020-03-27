@@ -41,10 +41,10 @@ export class PerfilPage implements OnInit {
     }
 
     sairVaga(idVaga: Number){
-      console.log("sair da vaga");
-      this.api.sairVaga(idVaga);
+      console.log("sair da vaga",idVaga);
+      //this.api.sairVaga(idVaga);
       this.toast_sair_vaga();
-      this.router.navigate(['home']);
+      this.router.navigate(['confirmasaida',idVaga]);
       
     }
 

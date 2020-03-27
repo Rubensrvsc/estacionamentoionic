@@ -18,10 +18,14 @@ export class ConfirmasaidaPage implements OnInit {
   ngOnInit() {
 
     this.act.params.subscribe(objeto =>{
-      this.id_sai_num = objeto['id_sai'];
+      this.id_sai_num = objeto['idVaga'];
     });
 
     console.log(this.id_sai_num);
+  }
+
+  vaiListaProprietarios(){
+    this.router.navigate(['listaproprietarios']);
   }
 
 }
