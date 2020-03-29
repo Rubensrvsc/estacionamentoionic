@@ -5,7 +5,7 @@ import {VagasProp} from '../services/vagas-proṕ';
 import { NavController } from '@ionic/angular';
 import { ConfirmareservaPage } from '../confirmareserva/confirmareserva.page';
 import { AuthService } from '../services/auth.service';
-
+import { MenuController } from '@ionic/angular';
 
 
 
@@ -26,7 +26,7 @@ export class ListaproprietariosPage implements OnInit {
   
 
   constructor(private api: ApiService, private router: Router,
-    private authService: AuthService) { }
+    private authService: AuthService, private menu: MenuController) { }
 
   ngOnInit() {
     return this.api.obtemNomesProps().subscribe(
@@ -47,15 +47,15 @@ export class ListaproprietariosPage implements OnInit {
   
   console.log(this.result2);
   
-
-  
   this.result3=this.result2;
-  console.log(typeof(this.result3));
-  
-
- 
+  console.log(typeof(this.result3)); 
   
 }
+
+  openFirst() {
+    this.menu.enable(true, 'first');
+    this.menu.open('first');
+  }
 
 
   irParaVagas(prop: Number){

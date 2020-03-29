@@ -1,31 +1,66 @@
 <ion-header>
   <ion-toolbar>
+    
+    <ion-icon float-left name="menu" style="zoom:2.0;" (click)="openFirst()"></ion-icon>
+
     <ion-title>Lista de Estacionamentos</ion-title>
-    <ion-button float-right (click)="logout()">Logout</ion-button>
+    <!---<ion-button float-right (click)="logout()">Logout</ion-button>
     <ion-icon float-right name="person" style="zoom:2.0;" (click)="verPerfil()"></ion-icon>
+  --->  
   </ion-toolbar>
+
 </ion-header>
 
-<ion-content>
 
-  <div *ngFor="let item of lista_prop" style="text-align: center;">
+  <ion-content>
+    <div>
+    <ion-menu side="start" menuId="first" contentId="main">
+      <ion-header>
+        
+        <ion-toolbar color="primary">
+          <ion-title>Menu</ion-title>
+        </ion-toolbar>
+      </ion-header>
+      <ion-content>
+        <ion-list>
+          <ion-item>
+          <ion-button (click)="verPerfil()">Ver perfil</ion-button>
+        </ion-item>
+        <ion-item>
+          <ion-button (click)="logout()">Logout</ion-button>
+        </ion-item>
+        </ion-list>
+      </ion-content>
+    </ion-menu>
+    <ion-router-outlet id="main"></ion-router-outlet>
+  </div>
+
+   <div>
+
+ 
+
+      <div *ngFor="let item of lista_prop" style="text-align: center;">
+        
+          <ion-card>
+            
+            <ion-button (click)="irParaVagas(item.id)">{{item.nome_prop}}</ion-button>
+            <ion-button (click)="vaiVagasTeste(item.id)">Vai vagas</ion-button>
+            
+          
+            
+          </ion-card>
+       
     
-      <ion-card>
-        
-        <ion-button (click)="irParaVagas(item.id)">{{item.nome_prop}}</ion-button>
-        <ion-button (click)="vaiVagasTeste(item.id)">Vai vagas</ion-button>
-        
-      
-        
-      </ion-card>
-   
+      </div>
+    
+      <div *ngFor="let i of result3">
+        <p>{{i.numero_vaga}}</p>
+        <p>{{i.id}}</p>
+        <p>{{i.ocupada}}</p>
+      </div>
+    
+    </div>
+  </ion-content>
+    
 
-  </div>
 
-  <div *ngFor="let i of result3">
-    <p>{{i.numero_vaga}}</p>
-    <p>{{i.id}}</p>
-    <p>{{i.ocupada}}</p>
-  </div>
-
-</ion-content>
