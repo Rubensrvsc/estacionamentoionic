@@ -4,6 +4,7 @@ import { VagasProp } from '../services/vagas-proṕ';
 import { ApiService } from '../services/api.service';
 import { Route } from '@angular/compiler/src/core';
 import { AuthService } from '../services/auth.service';
+import { MenuController } from '@ionic/angular';
 
 @Component({
   selector: 'app-listavagasprop',
@@ -20,7 +21,7 @@ export class ListavagaspropPage implements OnInit {
   
 
   constructor(public act: ActivatedRoute,private api: ApiService,
-    private router: Router,private authService: AuthService ){
+    private router: Router,private authService: AuthService, private menu: MenuController ){
 
      }
 
@@ -49,6 +50,11 @@ export class ListavagaspropPage implements OnInit {
   irParaVagaASerOcupada(id_vaga: Number){
     this.api.obtemVagaASerConfirmada(id_vaga);
     this.router.navigate(['confirmareserva',id_vaga]);
+  }
+
+  openFirst() {
+    this.menu.enable(true, 'first2');
+    this.menu.open('first2');
   }
 
   logout(){

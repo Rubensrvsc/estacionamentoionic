@@ -49,7 +49,6 @@ export class ListaproprietariosPage implements OnInit {
   
   this.result3=this.result2;
   console.log(typeof(this.result3)); 
-  
 }
 
   openFirst() {

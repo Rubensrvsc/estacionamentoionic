@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import {ActivatedRoute, Router } from '@angular/router';
 import { ApiService } from '../services/api.service';
 import {Vagaaserocupada} from '../services/vagaaserocupada';
-import { ToastController } from '@ionic/angular';
+import { ToastController, MenuController } from '@ionic/angular';
 import { AuthService } from '../services/auth.service';
 
 
@@ -20,7 +20,7 @@ export class ConfirmareservaPage implements OnInit {
 
   constructor(public act: ActivatedRoute,private api: ApiService,
     private router: Router,public toastcontroler: ToastController,
-    private authService: AuthService) {
+    private authService: AuthService, private menu: MenuController) {
       
      }
 
@@ -78,6 +78,11 @@ export class ConfirmareservaPage implements OnInit {
   logout(){
     this.authService.logout();
     this.router.navigate(['signin']);
+  }
+
+  openFirst() {
+    this.menu.enable(true, 'first3');
+    this.menu.open('first3');
   }
 
 }
