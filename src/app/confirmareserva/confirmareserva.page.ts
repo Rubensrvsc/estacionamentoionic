@@ -58,7 +58,7 @@ export class ConfirmareservaPage implements OnInit {
   }
 
   resvaga(idVaga: Number){
-    //this.api.reservaVaga(idVaga,this.usuario);
+    this.api.reservaVaga(idVaga,this.usuario);
     
     console.log(idVaga);
     console.log(this.usuario);

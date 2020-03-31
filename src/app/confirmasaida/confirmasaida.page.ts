@@ -32,7 +32,7 @@ export class ConfirmasaidaPage implements OnInit {
 
   sairVaga(){
     console.log("sair da vaga",this.id_sai_num);
-    //this.api.sairVaga(this.id_sai_num);
+    this.api.sairVaga(this.id_sai_num);
     this.toast_sair_vaga();
     this.router.navigate(['listaproprietarios']);
     
