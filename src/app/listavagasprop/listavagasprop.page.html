@@ -30,11 +30,15 @@
   </div>
 
   <div *ngFor="let item of result3">
+    <ion-label *ngIf="item.ocupada == false">
+      
     <ion-card>
     <h3>Numero da vaga: {{item.numero_vaga}}</h3>
     <h4>Status da vaga: {{item.ocupada}}</h4>
     <h5>Tipo da Vaga: {{item.tipo_vaga}}</h5>
     <ion-button (click)="irParaVagaASerOcupada(item.numero_vaga)" >Reservar Vaga</ion-button>
   </ion-card>
+
+</ion-label>
   </div>
   </ion-content>
