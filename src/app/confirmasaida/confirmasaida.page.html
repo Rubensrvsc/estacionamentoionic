@@ -14,4 +14,23 @@
     </ion-card>
   </div>
 
+  <div *ngFor= "let vaga of Vaga">
+    <ion-card>
+      <ion-item>
+      <ion-avatar item-start>
+        <img src="assets/vaga_livre.png">
+      </ion-avatar>
+    </ion-item>
+
+    <ion-card-content>
+      <ion-row>
+        <ion-col>{{vaga.numero_vaga}}</ion-col>
+        <ion-col>{{vaga.tipo_vaga}}</ion-col>
+        <ion-col>{{vaga.ocupada}}</ion-col>
+      </ion-row>
+    </ion-card-content>
+
+    </ion-card>
+  </div>
+
 </ion-content>
