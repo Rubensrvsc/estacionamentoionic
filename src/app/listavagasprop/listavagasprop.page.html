@@ -41,4 +41,17 @@
 
 </ion-label>
   </div>
+  <div *ngFor="let it of result3">
+    <ion-grid>
+      <ion-row class="row_grid">
+        <ion-col>
+          <img src="assets/vaga_livre.png">
+        </ion-col>
+        <ion-col>
+          <ion-button (click)="irParaVagaASerOcupada(item.numero_vaga)" >Reservar Vaga</ion-button>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+
+  </div>
   </ion-content>
