@@ -42,6 +42,7 @@
 </ion-label>
   </div>
   <div *ngFor="let it of result3">
+    <div *ngIf="it.ocupada == false">
     <ion-grid>
       <ion-row class="row_grid">
         <ion-col size="3">
@@ -50,6 +51,7 @@
         
       </ion-row>
     </ion-grid>
+  </div>
 
   </div>
   </ion-content>
