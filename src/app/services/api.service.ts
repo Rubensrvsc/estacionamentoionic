@@ -43,6 +43,11 @@ export class ApiService {
     const json_reserva_vaga = {vaga:idVaga,cliente:nome_cli};
     this.http.post(this.api_root.concat('clientevagacreate/'),json_reserva_vaga).toPromise().
     then(response => response.json());
+    
+    /*const teste_vaga_erro = this.http.post(this.api_root.concat('clientevagacreate/'),json_reserva_vaga).toPromise().
+    then(response => response.json());
+
+    console.log(teste_vaga_erro);*/
     console.log(nome_cli);
     console.log(idVaga);
   }
