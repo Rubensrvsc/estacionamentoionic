@@ -57,6 +57,10 @@ export class ListavagaspropPage implements OnInit {
     this.menu.open('first2');
   }
 
+  verPerfil(){
+    this.router.navigate(['perfil']);
+  }
+
   logout(){
     this.authService.logout();
     this.router.navigate(['signin']);

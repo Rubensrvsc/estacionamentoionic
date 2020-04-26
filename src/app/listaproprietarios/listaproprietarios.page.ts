@@ -71,7 +71,7 @@ export class ListaproprietariosPage implements OnInit {
     //this.router.navigate(['listavagasprop']);
   }
 
-  vaiVagasTeste(id_prop: Number){
+  vaiVagas(id_prop: Number){
     this.router.navigate(['listavagasprop',id_prop]);
   }
 

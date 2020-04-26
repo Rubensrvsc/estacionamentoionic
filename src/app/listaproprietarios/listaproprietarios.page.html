@@ -42,9 +42,10 @@
       <div *ngFor="let item of lista_prop" style="text-align: center;">
         
           <ion-card>
-            
+            <!--
             <ion-button (click)="irParaVagas(item.id)">{{item.nome_prop}}</ion-button>
-            <ion-button (click)="vaiVagasTeste(item.id)">Vai vagas</ion-button>
+            -->
+            <ion-button (click)="vaiVagas(item.id)">{{item.nome_prop}}</ion-button>
             
           
             
@@ -53,11 +54,13 @@
     
       </div>
     
+      <!--
       <div *ngFor="let i of result3">
         <p>{{i.numero_vaga}}</p>
         <p>{{i.id}}</p>
         <p>{{i.ocupada}}</p>
       </div>
+      -->
     
     </div>
   </ion-content>
