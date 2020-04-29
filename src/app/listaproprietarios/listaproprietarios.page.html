@@ -38,13 +38,13 @@
    <div>
 
  
-
+    <!--
       <div *ngFor="let item of lista_prop" style="text-align: center;">
         
           <ion-card>
-            <!--
+            
             <ion-button (click)="irParaVagas(item.id)">{{item.nome_prop}}</ion-button>
-            -->
+            
             <ion-button (click)="vaiVagas(item.id)">{{item.nome_prop}}</ion-button>
             
           
@@ -53,6 +53,27 @@
        
     
       </div>
+    -->
+
+      <div *ngFor="let item of lista_prop" style="text-align: center;">
+        
+        <ion-card>
+
+          <ion-card-header>
+            <ion-card-title>
+              {{item.nome_prop}}
+            </ion-card-title>
+          </ion-card-header>
+          
+         <ion-item>
+          <img (click)="vaiVagas(item.id)" src="../../assets/estacionamento_proprietario.png" height='200'>
+        </ion-item>
+          
+        </ion-card>
+     
+  
+    </div>
+  
     
       <!--
       <div *ngFor="let i of result3">
