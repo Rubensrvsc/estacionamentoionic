@@ -46,10 +46,12 @@
   </div>
   --->
   <div *ngFor="let it of result3">
-    <div *ngIf="it.ocupada == false">
+    <div *ngIf="it.ocupada == false" style="text-align: center;">
     <ion-grid>
       <ion-row class="row_grid">
-        <ion-col size="3">
+        <ion-col size="10">
+          <p>Numero da vaga: {{it.numero_vaga}}</p>
+          <p>Tipo da vaga: {{it.tipo_vaga}}</p>
           <img src="assets/vaga_livre.png" (click)="irParaVagaASerOcupada(it.numero_vaga)"  >
         </ion-col>
         
