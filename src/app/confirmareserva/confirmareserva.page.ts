@@ -58,12 +58,19 @@ export class ConfirmareservaPage implements OnInit {
   }
 
   resvaga(idVaga: Number){
-    this.api.reservaVaga(idVaga,this.usuario);
+    const vaga_res=this.api.reservaVaga(idVaga,this.usuario);
     
     console.log(idVaga);
     console.log(this.usuario);
-    this.toast_home();
-    this.router.navigate(['perfil']);
+    console.log(String(vaga_res.alert-onmessage));
+    if(String(vaga_res.alert-onmessage)==="NaN"){
+      console.log("entrou");
+      this.toast_ja_reservou();
+    }else{
+      this.toast_home();
+      this.router.navigate(['perfil']);
+    }
+    
   }
 
   async toast_home(){
@@ -73,6 +80,19 @@ export class ConfirmareservaPage implements OnInit {
     });
 
     toast.present();
+  }
+
+  async toast_ja_reservou(){
+    const toast = await this.toastcontroler.create({
+      message: 'Você já reservou uma vaga',
+      duration: 1000
+    });
+
+    toast.present();
+  }
+
+  verPerfil(){
+    this.router.navigate(['perfil']);
   }
 
   logout(){
