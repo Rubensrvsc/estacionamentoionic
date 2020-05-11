@@ -15,6 +15,28 @@
   </div>
 -->
 
+<div>
+  <ion-menu side="start" menuId="first3" contentId="main3">
+    <ion-header>
+      
+      <ion-toolbar color="primary">
+        <ion-title>Menu</ion-title>
+      </ion-toolbar>
+    </ion-header>
+    <ion-content>
+      <ion-list>
+        <ion-item>
+          <ion-button (click)="verPerfil()">Ver Perfil</ion-button>
+        </ion-item>
+      <ion-item>
+        <ion-button (click)="logout()">Logout</ion-button>
+      </ion-item>
+      </ion-list>
+    </ion-content>
+  </ion-menu>
+  <ion-router-outlet id="main3"></ion-router-outlet>
+</div>
+
   <div *ngFor= "let vaga of Vaga">
     <ion-card>
       <ion-item>

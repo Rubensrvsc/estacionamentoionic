@@ -60,4 +60,13 @@ async toast_sair_vaga(){
   toast.present();
 }
 
+  verPerfil(){
+    this.router.navigate(['perfil']);
+  }
+
+  logout(){
+    this.authService.logout();
+    this.router.navigate(['signin']);
+  }
+
 }
