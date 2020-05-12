@@ -44,20 +44,12 @@ export class PerfilPage implements OnInit {
 
     sairVaga(idVaga: Number){
       console.log("sair da vaga",idVaga);
-      //this.api.sairVaga(idVaga);
-      this.toast_sair_vaga();
+      
       this.router.navigate(['confirmasaida',idVaga]);
       
     }
 
-  async toast_sair_vaga(){
-    const toast = await this.toastcontroler.create({
-      message: 'Saiu da vaga com sucesso',
-      duration:2000
-    });
-
-    toast.present();
-  }
+  
 
   irHome(){
     this.router.navigate(['listaproprietarios']);
