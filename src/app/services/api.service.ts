@@ -56,6 +56,10 @@ export class ApiService {
     //console.log(vaga_ja_reservada.alert-onmessage);
   }
 
+  verVagaJaAlocada(){
+    
+  }
+
   sairVaga(idVaga: Number){
       const json_vaga={vaga_cliente:idVaga}
       this.http.put(this.api_root.concat('clientesaidavaga/'),json_vaga).toPromise().
