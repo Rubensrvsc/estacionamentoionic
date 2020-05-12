@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ApiService } from '../services/api.service';
-import { ToastController } from '@ionic/angular';
+import { ToastController, MenuController } from '@ionic/angular';
 import {Vagaaserocupada} from '../services/vagaaserocupada';
 
 
@@ -19,7 +19,7 @@ export class ConfirmasaidaPage implements OnInit {
 
   constructor(public act: ActivatedRoute,private api: ApiService,
     private router: Router,private authService: AuthService
-    ,public toastcontroler: ToastController) { }
+    ,public toastcontroler: ToastController, private menu: MenuController) { }
 
   ngOnInit() {
 
@@ -67,6 +67,11 @@ async toast_sair_vaga(){
   logout(){
     this.authService.logout();
     this.router.navigate(['signin']);
+  }
+
+  openFirst() {
+    this.menu.enable(true, 'first3');
+    this.menu.open('first3');
   }
 
 }

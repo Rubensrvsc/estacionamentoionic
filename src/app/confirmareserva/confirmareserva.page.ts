@@ -58,18 +58,14 @@ export class ConfirmareservaPage implements OnInit {
   }
 
   resvaga(idVaga: Number){
-    const vaga_res=this.api.reservaVaga(idVaga,this.usuario);
+    this.api.reservaVaga(idVaga,this.usuario);
     
     console.log(idVaga);
     console.log(this.usuario);
-    console.log(String(vaga_res.alert-onmessage));
-    if(String(vaga_res.alert-onmessage)==="NaN"){
-      console.log("entrou");
-      this.toast_ja_reservou();
-    }else{
-      this.toast_home();
-      this.router.navigate(['perfil']);
-    }
+    
+    this.toast_home();
+    this.router.navigate(['perfil']);
+    
     
   }
 

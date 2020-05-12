@@ -2,7 +2,8 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { repeat } from 'rxjs/operators';
 import { Router } from '@angular/router';
-import { ToastController } from '@ionic/angular';
+import { ToastController, MenuController } from '@ionic/angular';
+import { AuthService } from '../services/auth.service';
 
 @Component({
   selector: 'app-perfil',
@@ -16,7 +17,8 @@ export class PerfilPage implements OnInit {
   public usuario: any;
 
   constructor(private api: ApiService,
-    private router: Router,public toastcontroler: ToastController) { }
+    private router: Router,public toastcontroler: ToastController,
+    private menu: MenuController,private authService: AuthService) { }
 
   ngAfterViewInit(){
     return this.api.getUser().subscribe(
@@ -63,6 +65,20 @@ export class PerfilPage implements OnInit {
 
   vaiConfirmaSaida(id_vaga: Number){
     this.router.navigate(['listavagasprop',id_vaga]);
+  }
+
+  verListaProprietarios(){
+    this.router.navigate(['listaproprietarios']);
+  }
+
+  logout(){
+    this.authService.logout();
+    this.router.navigate(['signin']);
+  }
+
+  openFirst() {
+    this.menu.enable(true, 'first3');
+    this.menu.open('first3');
   }
 
 }

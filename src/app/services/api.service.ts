@@ -50,6 +50,7 @@ export class ApiService {
     console.log(teste_vaga_erro);*/
     console.log(nome_cli);
     console.log(idVaga);
+    
     return vaga_ja_reservada;
    
     //console.log(vaga_ja_reservada.alert-onmessage);
