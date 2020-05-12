@@ -56,8 +56,8 @@ export class ApiService {
     //console.log(vaga_ja_reservada.alert-onmessage);
   }
 
-  verVagaJaAlocada(){
-    
+  verVagaJaAlocada(idVaga: Number, nome_cli: String){
+
   }
 
   sairVaga(idVaga: Number){
