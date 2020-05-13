@@ -57,7 +57,8 @@ export class ApiService {
   }
 
   verVagaJaAlocada(idVaga: Number, nome_cli: String){
-
+    const vaga_ja_alocada = this.http.get(this.api_root.concat(`vagajaalocada/${nome_cli}/`))
+    console.log(vaga_ja_alocada)
   }
 
   sairVaga(idVaga: Number){
