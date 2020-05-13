@@ -23,6 +23,8 @@ export class ListaproprietariosPage implements OnInit {
   public result3 = new Array<any>();
 
   public reserva = ConfirmareservaPage;
+  public vagaJaAlocada: any;
+  public cliente: String;
   
 
   constructor(private api: ApiService, private router: Router,
@@ -49,6 +51,24 @@ export class ListaproprietariosPage implements OnInit {
   
   this.result3=this.result2;
   console.log(typeof(this.result3)); 
+
+  this.api.getUser().subscribe(
+    data=>{
+      const res = (data as any);
+      this.cliente=res["username"];
+    },error=>{
+      console.log(error);
+    });
+
+    console.log("Cliente: "+this.cliente);
+    
+  this.api.verVagaJaAlocada(this.cliente).subscribe(res => {
+    this.vagaJaAlocada = (res as any);
+    console.log(this.vagaJaAlocada);
+  }, error=>{
+    console.log(error);
+  });
+
 }
 
   openFirst() {
