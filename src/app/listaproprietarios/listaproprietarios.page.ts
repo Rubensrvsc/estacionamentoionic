@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ApiService } from '../services/api.service';
 import { Router } from '@angular/router';
 import {VagasProp} from '../services/vagas-proṕ';
-import { NavController } from '@ionic/angular';
+import { NavController, ToastController } from '@ionic/angular';
 import { ConfirmareservaPage } from '../confirmareserva/confirmareserva.page';
 import { AuthService } from '../services/auth.service';
 import { MenuController } from '@ionic/angular';
@@ -21,14 +21,17 @@ export class ListaproprietariosPage implements OnInit {
   public result= new Array<VagasProp>();
   public result2= new Array<VagasProp>();
   public result3 = new Array<any>();
+  public v: Boolean;
 
   public reserva = ConfirmareservaPage;
-  public vagaJaAlocada: any;
+  public vagaJaAlocada: Number;
   public cliente ='';
-  
+  public testevagaalocada = [];
+  public vagaAlocadaOuNao=false;
 
   constructor(private api: ApiService, private router: Router,
-    private authService: AuthService, private menu: MenuController) { }
+    private authService: AuthService, private menu: MenuController
+    ,public toastcontroler: ToastController) { }
 
   ngOnInit() {
     return this.api.obtemNomesProps().subscribe(
@@ -57,10 +60,12 @@ export class ListaproprietariosPage implements OnInit {
       const res = (data as any);
       this.cliente=res["username"];
       console.log("Cliente: "+this.cliente);
-
+      this.vaga();
     },error=>{
       console.log(error);
     });
+
+    
 
 }
 
@@ -85,7 +90,16 @@ export class ListaproprietariosPage implements OnInit {
   }
 
   vaiVagas(id_prop: Number){
-    this.router.navigate(['listavagasprop',id_prop]);
+    //this.router.navigate(['listavagasprop',id_prop]);
+    if(this.vagaJaAlocada===0){
+      //this.vagaAlocadaOuNao=false;
+      this.router.navigate(['listavagasprop',id_prop]);
+    }
+    else if(this.vagaJaAlocada===1){
+      this.toast_vaga_alocada();
+    }
+    //this.vagaAlocada();
+    //console.log(this.testevagaalocada);
   }
   
 
@@ -98,13 +112,47 @@ export class ListaproprietariosPage implements OnInit {
     this.router.navigate(['perfil']);
   }
 
-  vagaAlocada(){
+  vaga(){
     this.api.verVagaJaAlocada(this.cliente).subscribe(res => {
       this.vagaJaAlocada = (res as any);
       console.log(this.vagaJaAlocada);
+      
+      //this.testevagaalocada.push(this.vagaJaAlocada);
+     
     }, error=>{
       console.log(error);
     });
   }
+
+  vagaAlocada(){
+  
+    this.vaga();
+   
+    if(this.vagaJaAlocada===0){
+        //this.vagaAlocadaOuNao=false;
+        console.log("Pode ir");
+    }
+    else if(this.vagaJaAlocada===1){
+      this.toast_vaga_alocada();
+    }
+    
+    //console.log(this.vagaAlocadaOuNao);
+    //this.testevagaalocada.pop();
+    //console.log(this.vagaAlocadaOuNao);
+    console.log(this.vagaJaAlocada);
+
+    
+  }
+
+  async toast_vaga_alocada(){
+    const toast = await this.toastcontroler.create({
+      message: 'Você já tem uma vaga alocada',
+      duration:1000
+    });
+  
+    toast.present();
+  }
+
+
 
 }
