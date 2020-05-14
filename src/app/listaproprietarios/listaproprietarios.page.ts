@@ -24,7 +24,7 @@ export class ListaproprietariosPage implements OnInit {
 
   public reserva = ConfirmareservaPage;
   public vagaJaAlocada: any;
-  public cliente: String;
+  public cliente ='';
   
 
   constructor(private api: ApiService, private router: Router,
@@ -37,8 +37,8 @@ export class ListaproprietariosPage implements OnInit {
         console.log(this.lista_prop);
      },error=>{
         console.log(error);
-     }
-    )
+     });
+
   }
 
   ngAfterViewInit(){
@@ -56,18 +56,11 @@ export class ListaproprietariosPage implements OnInit {
     data=>{
       const res = (data as any);
       this.cliente=res["username"];
+      console.log("Cliente: "+this.cliente);
+
     },error=>{
       console.log(error);
     });
-
-    console.log("Cliente: "+this.cliente);
-    
-  this.api.verVagaJaAlocada(this.cliente).subscribe(res => {
-    this.vagaJaAlocada = (res as any);
-    console.log(this.vagaJaAlocada);
-  }, error=>{
-    console.log(error);
-  });
 
 }
 
@@ -94,6 +87,7 @@ export class ListaproprietariosPage implements OnInit {
   vaiVagas(id_prop: Number){
     this.router.navigate(['listavagasprop',id_prop]);
   }
+  
 
   logout(){
     this.authService.logout();
@@ -102,6 +96,15 @@ export class ListaproprietariosPage implements OnInit {
 
   verPerfil(){
     this.router.navigate(['perfil']);
+  }
+
+  vagaAlocada(){
+    this.api.verVagaJaAlocada(this.cliente).subscribe(res => {
+      this.vagaJaAlocada = (res as any);
+      console.log(this.vagaJaAlocada);
+    }, error=>{
+      console.log(error);
+    });
   }
 
 }
