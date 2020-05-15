@@ -124,7 +124,18 @@ export class ListaproprietariosPage implements OnInit {
     });
   }
 
-  vagaAlocada(){
+ 
+
+  async toast_vaga_alocada(){
+    const toast = await this.toastcontroler.create({
+      message: 'Você já tem uma vaga alocada',
+      duration:1000
+    });
+  
+    toast.present();
+  }
+
+  /* vagaAlocada(){
   
     this.vaga();
    
@@ -143,15 +154,7 @@ export class ListaproprietariosPage implements OnInit {
 
     
   }
-
-  async toast_vaga_alocada(){
-    const toast = await this.toastcontroler.create({
-      message: 'Você já tem uma vaga alocada',
-      duration:1000
-    });
-  
-    toast.present();
-  }
+  */
 
 
 
