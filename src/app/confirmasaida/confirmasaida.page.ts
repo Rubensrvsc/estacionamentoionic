@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { AuthService } from '../services/auth.service';
 import { Router, ActivatedRoute } from '@angular/router';
 import { ApiService } from '../services/api.service';
-import { ToastController, MenuController } from '@ionic/angular';
+import { ToastController, MenuController, AlertController } from '@ionic/angular';
 import {Vagaaserocupada} from '../services/vagaaserocupada';
 
 
@@ -19,7 +19,8 @@ export class ConfirmasaidaPage implements OnInit {
 
   constructor(public act: ActivatedRoute,private api: ApiService,
     private router: Router,private authService: AuthService
-    ,public toastcontroler: ToastController, private menu: MenuController) { }
+    ,public toastcontroler: ToastController, private menu: MenuController,
+    private alertCtrl: AlertController) { }
 
   ngOnInit() {
 
@@ -72,6 +73,17 @@ async toast_sair_vaga(){
   openFirst() {
     this.menu.enable(true, 'first3');
     this.menu.open('first3');
+  }
+
+  async presentAlertSaida(){
+    const alert = await this.alertCtrl.create({
+      header: 'Alert',
+      subHeader: 'Subtitle',
+      message: 'O total gasto foi de 80 centavos',
+      buttons: ['OK']
+    });
+
+    await alert.present();
   }
 
 }
