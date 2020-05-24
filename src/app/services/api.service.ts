@@ -70,6 +70,11 @@ export class ApiService {
       console.log(idVaga);
   }
 
+  vagaRecemSaida(idVaga: Number){
+    const json_vaga = {vaga: idVaga}
+    return this.http.get(this.api_root.concat(`vervagarecemsaida/${idVaga}/`)).toPromise();
+  }
+
   obtemNomesProps(){
     return this.http.get(this.api_root.concat('mostranomeprop/'));
   }
