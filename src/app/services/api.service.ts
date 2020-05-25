@@ -70,9 +70,8 @@ export class ApiService {
       console.log(idVaga);
   }
 
-  vagaRecemSaida(idVaga: Number){
-    const json_vaga = {vaga: idVaga}
-    return this.http.get(this.api_root.concat(`vervagarecemsaida/${idVaga}/`)).toPromise();
+  vagaRecemSaida(nome_cliente: Number){
+    return this.http.get(this.api_root.concat(`vervagarecemsaida/${nome_cliente}/`));
   }
 
   obtemNomesProps(){
