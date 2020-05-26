@@ -97,6 +97,8 @@ async toast_sair_vaga(){
   }
 
   async presentAlertSaida(total_transacao: Number){
+
+    if (total_transacao < 1.0){
     const alert = await this.alertCtrl.create({
       header: 'Total da transacao',
       //subHeader: 'Subtitle',
@@ -105,6 +107,10 @@ async toast_sair_vaga(){
     });
 
     await alert.present();
+  }
+  else if(total_transacao > 1.0){
+    console.log("A fazer");
+  }
   }
 
 }
