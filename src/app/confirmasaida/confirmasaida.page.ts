@@ -109,7 +109,16 @@ async toast_sair_vaga(){
     await alert.present();
   }
   else if(total_transacao > 1.0){
-    console.log("A fazer");
+    const numero_string = total_transacao.toString().split('.')
+    const alert = await this.alertCtrl.create({
+      header: 'Total da transacao',
+      //subHeader: 'Subtitle',
+      message: `O total gasto foi de ${parseInt(numero_string[0])} reais e 
+      ${parseInt(numero_string[1])} centavos`,
+      buttons: ['OK']
+    });
+
+    await alert.present();
   }
   }
 
