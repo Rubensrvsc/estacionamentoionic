@@ -70,8 +70,8 @@ export class ApiService {
       console.log(idVaga);
   }
 
-  vagaRecemSaida(nome_cliente: Number){
-    return this.http.get(this.api_root.concat(`vervagarecemsaida/${nome_cliente}/`));
+  vagaRecemSaida(nome_cliente: Number, num_vaga: Number){
+    return this.http.get(this.api_root.concat(`vervagarecemsaida/${nome_cliente}/${num_vaga}`));
   }
 
   obtemNomesProps(){

@@ -58,7 +58,7 @@ export class ConfirmasaidaPage implements OnInit {
   sairVaga(){
     console.log("sair da vaga",this.id_sai_num);
     this.api.sairVaga(this.id_sai_num);
-    const vagarecemsada = this.api.vagaRecemSaida(this.usuario);
+    const vagarecemsada = this.api.vagaRecemSaida(this.usuario,this.id_sai_num);
     vagarecemsada.subscribe(
       data=>{
         this.vagaRecemSaida = (data as any);
@@ -98,23 +98,32 @@ async toast_sair_vaga(){
 
   async presentAlertSaida(total_transacao: Number){
 
+    console.log("total transação: "+total_transacao);
+
     if (total_transacao < 1.0){
+    const numero_string = total_transacao.toString().split('.')
+    if(parseInt(numero_string[1]) === NaN){
+      numero_string[1] = '0';
+    }
     const alert = await this.alertCtrl.create({
       header: 'Total da transacao',
       //subHeader: 'Subtitle',
-      message: `O total gasto foi de ${total_transacao} centavos`,
+      message: `O total gasto foi de ${numero_string[1].substring(2,-3)} centavos`,
       buttons: ['OK']
     });
 
     await alert.present();
   }
-  else if(total_transacao > 1.0){
+  else if(total_transacao > 0.9){
     const numero_string = total_transacao.toString().split('.')
+    if(parseInt(numero_string[1]) === NaN){
+      numero_string[1] = '0';
+    }
     const alert = await this.alertCtrl.create({
       header: 'Total da transacao',
       //subHeader: 'Subtitle',
-      message: `O total gasto foi de ${parseInt(numero_string[0])} reais e 
-      ${parseInt(numero_string[1])} centavos`,
+      message: `O total gasto foi de ${numero_string[0]} reais 
+      e ${numero_string[1].substring(2,-3)} centavos`,
       buttons: ['OK']
     });
 
