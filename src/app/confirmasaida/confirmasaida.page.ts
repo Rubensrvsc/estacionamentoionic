@@ -119,10 +119,13 @@ async toast_sair_vaga(){
     if(parseInt(numero_string[1]) === NaN){
       numero_string[1] = '0';
     }
+    else if(numero_string[1].length === 1){
+      numero_string[1] + '0';
+    }
     const alert = await this.alertCtrl.create({
       header: 'Total da transacao',
       //subHeader: 'Subtitle',
-      message: `O total gasto foi de ${numero_string[0]} reais 
+      message: `O total gasto foi de ${numero_string[0]} real(is) 
       e ${numero_string[1].substring(2,-3)} centavos`,
       buttons: ['OK']
     });
