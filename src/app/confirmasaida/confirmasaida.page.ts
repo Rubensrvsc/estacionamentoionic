@@ -105,6 +105,9 @@ async toast_sair_vaga(){
     if(parseInt(numero_string[1]) === NaN){
       numero_string[1] = '0';
     }
+    else if (numero_string[1].length === 1){
+      numero_string[1] += '0';
+    }
     const alert = await this.alertCtrl.create({
       header: 'Total da transacao',
       //subHeader: 'Subtitle',
