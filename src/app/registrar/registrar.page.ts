@@ -16,7 +16,6 @@ export class RegistrarPage implements OnInit {
   }
 
   registrar(nome: string,idade: number, email: string, senha: string){
-    console.log("entrou registro");
     this.prov_r.registrarUsuario(nome,idade,email,senha);
   }
 

@@ -32,14 +32,12 @@ export class ConfirmareservaPage implements OnInit {
       this.vaga_id = objeto['id_vaga'];
     });
 
-    console.log(this.vaga_id);
 
   }
 
   ngAfterViewInit(){
     this.api.obtemVagaASerConfirmada(this.vaga_id).subscribe(res =>{
       this.Vaga = (res as any);
-      console.log(this.Vaga);
     },
     error=>{
       console.log(error);
@@ -50,7 +48,6 @@ export class ConfirmareservaPage implements OnInit {
       data=>{
         const res = (data as any);
         this.usuario=res["username"];
-        console.log(this.usuario);
       },error=>{
         console.log(error);
       });
@@ -59,9 +56,6 @@ export class ConfirmareservaPage implements OnInit {
 
   resvaga(idVaga: Number){
     this.api.reservaVaga(idVaga,this.usuario);
-    
-    console.log(idVaga);
-    console.log(this.usuario);
     
     this.toast_home();
     this.router.navigate(['perfil']);

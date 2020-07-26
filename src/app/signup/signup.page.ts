@@ -32,7 +32,6 @@ export class SignupPage implements OnInit {
   }
 
   signup() {
-    console.log("entrou registro");
     this.authService.signup(this.username, this.email, this.password1, this.password2).subscribe(
       success => this.router.navigate(['listaproprietarios']),
       error => this.error = error

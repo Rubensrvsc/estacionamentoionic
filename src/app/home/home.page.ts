@@ -24,7 +24,6 @@ export class HomePage implements OnInit{
       return this.api.getUser().subscribe(
         data=>{
           const res = (data as any);
-          console.log(res)
           this.usuario=res["username"];
         },error=>{
           console.log(error);
@@ -35,9 +34,7 @@ export class HomePage implements OnInit{
      return this.api.getVagas().subscribe(
        data=>{
           const response = (data as any);
-          console.log(response);
           this.lista_vagas = response;
-          console.log(this.lista_vagas);
        },error=>{
           console.log(error);
        })

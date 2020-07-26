@@ -24,7 +24,6 @@ export class PerfilPage implements OnInit {
     return this.api.getUser().subscribe(
       data=>{
         const res = (data as any);
-        console.log(res)
         this.usuario=res["username"];
       },error=>{
         console.log(error);
@@ -37,13 +36,12 @@ export class PerfilPage implements OnInit {
       data=>{
         const response = (data as any);
         this.lista_vagas_cliente = response;
-        console.log(this.lista_vagas_cliente);
       }
     )
     }
 
     sairVaga(idVaga: Number){
-      console.log("sair da vaga",idVaga);
+
       
       this.router.navigate(['confirmasaida',idVaga]);
       

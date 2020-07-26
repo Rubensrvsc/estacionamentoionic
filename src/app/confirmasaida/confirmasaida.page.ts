@@ -29,14 +29,11 @@ export class ConfirmasaidaPage implements OnInit {
     this.act.params.subscribe(objeto =>{
       this.id_sai_num = objeto['idVaga'];
     });
-
-    console.log(this.id_sai_num);
   }
 
   ngAfterViewInit(){
     this.api.obtemVagaASerConfirmada(this.id_sai_num).subscribe(res => {
       this.Vaga = (res as any);
-      console.log(this.Vaga);
     },error=>{
       console.log(error);
     });
@@ -44,7 +41,6 @@ export class ConfirmasaidaPage implements OnInit {
     this.api.getUser().subscribe(
       data=>{
         const res = (data as any);
-        console.log(res)
         this.usuario=res["username"];
       },error=>{
         console.log(error);
@@ -56,13 +52,11 @@ export class ConfirmasaidaPage implements OnInit {
   }
 
   sairVaga(){
-    console.log("sair da vaga",this.id_sai_num);
     this.api.sairVaga(this.id_sai_num);
     const vagarecemsada = this.api.vagaRecemSaida(this.usuario,this.id_sai_num);
     vagarecemsada.subscribe(
       data=>{
         this.vagaRecemSaida = (data as any);
-        console.log(this.vagaRecemSaida.total_transacao);
         this.presentAlertSaida(this.vagaRecemSaida.total_transacao);
       },error=>{
         console.log(error);
@@ -97,8 +91,6 @@ async toast_sair_vaga(){
   }
 
   async presentAlertSaida(total_transacao: Number){
-
-    console.log("total transação: "+total_transacao);
 
     if (total_transacao < 1.0){
     const numero_string = total_transacao.toString().split('.')
