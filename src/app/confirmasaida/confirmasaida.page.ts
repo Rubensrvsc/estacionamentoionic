@@ -121,7 +121,7 @@ async toast_sair_vaga(){
       header: 'Total da transacao',
       //subHeader: 'Subtitle',
       message: `O total gasto foi de ${numero_string[0]} real(is) 
-      e ${numero_string[1].substring(2,-3)} centavos`,
+      e ${numero_string[1].substring(2,-3)}0 centavos`,
       buttons: ['OK']
     });
 
